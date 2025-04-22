@@ -1,0 +1,375 @@
+/* 下面是等下要问老师的问题
+1. 2号走马灯没办法填满整个格子。总是有空余的部分在右边
+2. 1号走马灯的高度很难调节，没办法做到自适应
+3. header 的高度没办法做到align center
+4. main page about 里yaric 的照片太大，超出了容器 
+5. maiin page about 之后的页面把顶上的导览条遮住了*/
+
+html{
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Rockwill';
+    src: url('../fonts/Rockwill.ttf') format('truetype');
+}
+
+/* skip to main */
+.skip {
+    position: absolute;
+    top: -400px;
+}
+
+.skip:focus {
+    top: 25px;
+    background-color: white;
+}
+
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    cursor: none;
+}
+
+#invertedcursor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    top: var(--y, 0);
+    left: var(--x, 0);
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    mix-blend-mode: difference;
+    transition: transform .2s;
+    pointer-events: none;
+  }
+
+h1 {
+    font-family: 'Rockwill';
+    text-transform: uppercase;
+    margin: 0px;
+    font-size: 15vw;
+}
+
+h2,
+.like-h2 {
+    font-size: 10vw;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 4vw;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+p {
+    font-size: 1vw;
+    text-transform: uppercase;
+}
+
+a, a:visited, a:active, a:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+/* 【导览条】关于导览条儿的css 代码。会用在任意一个网页的最顶端。*/
+
+.navbar-container {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.topnav {
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.topnav-right {
+    float: right;
+}
+
+.videocontainer {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.videocontainer iframe,
+.videocontainer video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 让视频内容铺满，不变形可加这个 */
+}
+
+.header-logo {
+    width: 100%;
+}
+
+.title-logo{
+    width: 2%;
+}
+
+.title-banner {
+    background-color: #000000;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;        /* 隐藏溢出部分 */
+    white-space: nowrap;     /* 防止自动换行 */
+    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+  }
+
+.title {
+    padding-left: 5vw;
+    padding-top: 5vw;
+    display: flex;
+    align-items: center;
+}
+
+
+/* [背景预留空间】padding-background */
+.padding-background{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+}
+
+.about{
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    row-gap: 1rem;
+    height: 100vh;
+}
+.about content{
+    text-align: center;
+    margin: 10px;
+}
+
+.about content p{
+    text-align: center;
+    margin: 10px;
+}
+
+.about content img{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 50%;
+}
+
+/* 旋转的小图标 */
+.rotating-image {
+    width: 15vw; /* 你可以根据需要调整大小 */
+    height: auto;
+    animation: slow-spin 20s linear infinite;
+    display: block;
+    margin: 10px;
+    z-index: 0;
+  }
+  
+  @keyframes slow-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+/* 关于演出信息 */
+.concert {
+    height: 100vh;
+    padding: 2rem;
+    background-color: #681515;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('https://cdn.discordapp.com/attachments/1363637490816126988/1363963203905781955/image_250.jpg?ex=6807f139&is=68069fb9&hm=926e7480b4a1ce4d8def533a7704138bcd46ea81089462c5e2e7a613a1d36e4f&');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .left-top-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .content-block h2 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .icon-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+  }
+  
+  .bottom-right-content {
+    bottom: 2rem;
+    right: 2rem;
+    text-align: right;
+  }
+  
+
+/* 【关于嘉宾】关于嘉宾的css代码。用来显示关于嘉宾的排版。flex格式 */
+
+.casts {
+    display: flex;
+    flex-wrap: wrap; /* 自动换行，如果屏幕放不下 */
+    gap: 20px;       /* 每个块之间的间距 */
+    justify-content: center; /* 项目左右分布 */
+    padding: 0px;
+  }
+  
+  .cast-information {
+    flex: 1 1 calc(33.33% - 20px); /* 三列布局 */
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+  }
+
+  .cast-information img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* 避免图片底部出现空隙 */
+    object-fit: cover; /* 如果你希望裁剪图像填充容器 */
+  }
+  @media (max-width: 900px) {
+    .cast-information {
+      flex: 1 1 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+    }
+  }
+
+
+
+/* 跑马灯特效 最先出现在 new album.html 页面里。也运用到了其他页面 */
+.marquee {
+    height: 12vw;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.marquee div {
+    display: block;
+    width: 200%;
+    height: 12vw;
+
+    position: absolute;
+    overflow: hidden;
+
+    animation: marquee 5s linear infinite;
+}
+
+.marquee span {
+    float: left;
+    width: 50%;
+}
+
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+/* 歌单的css代码。出现在 new album.html 页面里。用来显示歌单的排版。 */
+.tracklist {
+    gap: 0px;
+}
+
+.tracklist-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    color: rgb(255, 255, 255);
+    padding: 16px 32px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-top: #2d2d2d 1px solid;
+}
+
+.tracklist-list:hover {
+    background-image: url('https://cdn.discordapp.com/attachments/1363637490816126988/1363638021790109866/Track-list.jpg?ex=6806c25f&is=680570df&hm=d66ddaf7ac64e7be86066b558353a81b866fbc6c89e03c84bc2bc989a542e51b&');
+  background-color: transparent; /* 防止背景色挡住图片 */
+  color: rgb(255, 255, 255);
+  }
+
+.tracklist-item2 {
+    text-align: right;
+}
+
+.tracklist-item3 {
+    text-align: right;
+}
+
+/* 【视频背景】出现在 main.html 页面里。用来显示视频背景的排版。 */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* 【添加高度】这个类是用来给空白的地方添加高度的。 */
+.blank-space-1 {
+    height: 80vh;
+}
+
+.blank-space-2 {
+    height: 35vh;
+    background-color: #af81ff;
+}
+
+
