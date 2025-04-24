@@ -14,6 +14,11 @@ html{
     src: url('../fonts/Rockwill.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'franklin-gothic';
+    src: url('../fonts/franklin-gothic-condensed.ttf') format('truetype');
+}
+
 /* skip to main */
 .skip {
     position: absolute;
@@ -34,6 +39,7 @@ body {
     cursor: none;
 }
 
+/* 鼠标的花样儿 */
 #invertedcursor {
     position: absolute;
     width: 40px;
@@ -49,24 +55,59 @@ body {
     pointer-events: none;
   }
 
+  /* 买票按钮悬浮变色花样儿 */
+  .extra-link-text {
+    text-align: center;
+    margin-right: 20px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: #4444ff;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .extra-link-text {
+        transition: none; /* 禁用过渡效果 */
+    }
+}
+
+.extra-link-text:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.ticket-icon{
+    width: 2vw;
+    height: auto;
+    background-image: url('../images/square-icon4.png');
+
+}
+
 h1 {
     font-family: 'Rockwill';
     text-transform: uppercase;
     margin: 0px;
     font-size: 15vw;
+    color: #4444FF;
 }
 
 h2,
-.like-h2 {
-    font-size: 10vw;
+.marquee-text {
+    font-size: 3vw;
+    font-family:'franklin-gothic';
     text-transform: uppercase;
     margin: 0px;
+    color: black;
 }
 
 h3 {
-    font-size: 4vw;
+    font-size: 6vw;
+    font-family: 'franklin-gothic';
     text-transform: uppercase;
-    margin: 0px;
+    margin-bottom: 0px;
+    margin-top: 10px;
 }
 
 p {
@@ -74,6 +115,7 @@ p {
     text-transform: uppercase;
 }
 
+/* 超链接不变色 */
 a, a:visited, a:active, a:hover{
     text-decoration: none;
     color: #ffffff;
@@ -92,6 +134,9 @@ a, a:visited, a:active, a:hover{
     position: relative;
     overflow: hidden;
     background-color: #000000;
+    align-items: center; 
+    display: flex;
+    justify-content: space-between
 }
 
 .topnav a {
@@ -102,6 +147,11 @@ a, a:visited, a:active, a:hover{
     text-decoration: none;
     font-size: 17px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.topnav-right a:hover {
+    color: #4444ff; 
 }
 
 .topnav-right {
@@ -194,7 +244,7 @@ a, a:visited, a:active, a:hover{
     z-index: 0;
   }
   
-  @keyframes slow-spin {
+@keyframes slow-spin {
     from {
       transform: rotate(0deg);
     }
@@ -202,6 +252,13 @@ a, a:visited, a:active, a:hover{
       transform: rotate(360deg);
     }
   }
+
+/* reduce motion media query */
+@media (prefers-reduced-motion: reduce) {
+    .rotating-image {
+        animation: none; /* 禁用旋转动画 */
+    }
+}
 
 /* 关于演出信息 */
 .concert {
@@ -211,7 +268,7 @@ a, a:visited, a:active, a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('https://cdn.discordapp.com/attachments/1363637490816126988/1363963203905781955/image_250.jpg?ex=6807f139&is=68069fb9&hm=926e7480b4a1ce4d8def533a7704138bcd46ea81089462c5e2e7a613a1d36e4f&');
+    background-image: url('../images/bg-3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -236,13 +293,23 @@ a, a:visited, a:active, a:hover{
   .icon {
     font-size: 1.5rem;
   }
+
+  .icon-text img{
+    width: 2vw;
+  }
   
   .bottom-right-content {
     bottom: 2rem;
     right: 2rem;
     text-align: right;
+   
   }
-  
+
+  .bottom-right-content a{
+ 
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
 
 /* 【关于嘉宾】关于嘉宾的css代码。用来显示关于嘉宾的排版。flex格式 */
 
@@ -253,7 +320,6 @@ a, a:visited, a:active, a:hover{
     justify-content: center; /* 项目左右分布 */
     padding: 0px;
   }
-  
   .cast-information {
     flex: 1 1 calc(33.33% - 20px); /* 三列布局 */
     max-width: calc(33.33% - 20px);
@@ -281,23 +347,22 @@ a, a:visited, a:active, a:hover{
 
 /* 跑马灯特效 最先出现在 new album.html 页面里。也运用到了其他页面 */
 .marquee {
-    height: 12vw;
+    height: 4vw;
     width: 100%;
     overflow: hidden;
     position: relative;
-    border-top: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
+    background-color: #4444FF;
 }
 
 .marquee div {
     display: block;
     width: 200%;
-    height: 12vw;
+    height: 4vw;
 
     position: absolute;
     overflow: hidden;
 
-    animation: marquee 5s linear infinite;
+    animation: marquee 10s linear infinite;
 }
 
 .marquee span {
@@ -315,6 +380,12 @@ a, a:visited, a:active, a:hover{
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .marquee div {
+        animation: none; /* 禁用滚动动画 */
+    }
+}
+
 /* 歌单的css代码。出现在 new album.html 页面里。用来显示歌单的排版。 */
 .tracklist {
     gap: 0px;
@@ -324,7 +395,7 @@ a, a:visited, a:active, a:hover{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    margin: 0;
+    margin: 4px 2px;
     overflow: hidden;
     background-color: #000000;
     background-size: cover;
@@ -332,16 +403,29 @@ a, a:visited, a:active, a:hover{
     color: rgb(255, 255, 255);
     padding: 16px 32px;
     text-align: center;
-    margin: 4px 2px;
     cursor: pointer;
     border-top: #2d2d2d 1px solid;
+    transition: color 0.3s ease-in-out;
+
 }
 
 .tracklist-list:hover {
-    background-image: url('https://cdn.discordapp.com/attachments/1363637490816126988/1363638021790109866/Track-list.jpg?ex=6806c25f&is=680570df&hm=d66ddaf7ac64e7be86066b558353a81b866fbc6c89e03c84bc2bc989a542e51b&');
-  background-color: transparent; /* 防止背景色挡住图片 */
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  background: linear-gradient(90deg, #4444FF, #0E5CB1, #2DACB0,#A7E9A1,#2DACB0, #0E5CB1, #4444FF);
   }
+
+/* 增加减少运动模式的样式 */
+@media (prefers-reduced-motion: reduce) {
+    /* 禁用渐变背景和颜色过渡 */
+    .tracklist-list {
+        transition: none; /* 禁用所有过渡动画 */
+    }
+
+    .tracklist-list:hover {
+        color: rgb(0, 0, 0); /* 直接应用文字颜色 */
+       
+    }
+}
 
 .tracklist-item2 {
     text-align: right;
@@ -362,6 +446,19 @@ a, a:visited, a:active, a:hover{
     z-index: -1;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    /* 如果用户选择减少运动，禁用视频，使用静态图片替代 */
+    #bg-video {
+        display: none;  /* 隐藏视频背景 */
+    }
+
+    /* 使用图片背景替代视频 */
+    body {
+        background: url('../images/reduce-motion-bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
 /* 【添加高度】这个类是用来给空白的地方添加高度的。 */
 .blank-space-1 {
     height: 80vh;
@@ -369,7 +466,15 @@ a, a:visited, a:active, a:hover{
 
 .blank-space-2 {
     height: 35vh;
-    background-color: #af81ff;
+    background-color: #000000;
 }
+.blank-space-3 {
+    height: 20vh;
+    background-color: #000000;
+}
+
+.footer {
+    background-color: #000000;
+}   
 
 
