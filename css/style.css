@@ -5,7 +5,7 @@
 4. main page about 里yaric 的照片太大，超出了容器 
 5. maiin page about 之后的页面把顶上的导览条遮住了*/
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -53,10 +53,10 @@ body {
     mix-blend-mode: difference;
     transition: transform .2s;
     pointer-events: none;
-  }
+}
 
-  /* 买票按钮悬浮变色花样儿 */
-  .extra-link-text {
+/* 买票按钮悬浮变色花样儿 */
+.extra-link-text {
     text-align: center;
     margin-right: 20px;
     padding: 20px 40px;
@@ -69,7 +69,8 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
     .extra-link-text {
-        transition: none; /* 禁用过渡效果 */
+        transition: none;
+        /* 禁用过渡效果 */
     }
 }
 
@@ -78,7 +79,7 @@ body {
     color: #000000;
 }
 
-.ticket-icon{
+.ticket-icon {
     width: 2vw;
     height: auto;
     background-image: url('../images/square-icon4.png');
@@ -96,11 +97,23 @@ h1 {
 h2,
 .marquee-text {
     font-size: 3vw;
-    font-family:'franklin-gothic';
+    font-family: 'franklin-gothic';
     text-transform: uppercase;
     margin: 0px;
     color: black;
 }
+
+.sidebar-marquee-text {
+    font-size: 18px;
+    font-family: 'franklin-gothic';
+    text-transform: uppercase;
+    margin: 0px;
+    color: rgb(0, 0, 0);
+}
+
+
+
+
 
 h3 {
     font-size: 6vw;
@@ -110,16 +123,30 @@ h3 {
     margin-top: 10px;
 }
 
+h4 {
+    font-size: 50px;
+    font-family: 'franklin-gothic';
+    text-transform: uppercase;
+    margin: 0px;
+    text-align: left;
+    margin-left: 0px;
+    color: #f2f2f2;
+}
+
 p {
     font-size: 1vw;
     text-transform: uppercase;
 }
 
 /* 超链接不变色 */
-a, a:visited, a:active, a:hover{
+a,
+a:visited,
+a:active,
+a:hover {
     text-decoration: none;
     color: #ffffff;
 }
+
 /* 【导览条】关于导览条儿的css 代码。会用在任意一个网页的最顶端。*/
 
 .navbar-container {
@@ -128,13 +155,15 @@ a, a:visited, a:active, a:hover{
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
+    /* 确保导航栏在其他内容之上 */
 }
 
 .topnav {
     position: relative;
     overflow: hidden;
     background-color: #000000;
-    align-items: center; 
+    align-items: center;
     display: flex;
     justify-content: space-between
 }
@@ -151,7 +180,7 @@ a, a:visited, a:active, a:hover{
 }
 
 .topnav-right a:hover {
-    color: #4444ff; 
+    color: #4444ff;
 }
 
 .topnav-right {
@@ -167,19 +196,20 @@ a, a:visited, a:active, a:hover{
 
 .videocontainer iframe,
 .videocontainer video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 让视频内容铺满，不变形可加这个 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 让视频内容铺满，不变形可加这个 */
 }
 
 .header-logo {
     width: 100%;
 }
 
-.title-logo{
+.title-logo {
     width: 2%;
 }
 
@@ -189,11 +219,13 @@ a, a:visited, a:active, a:hover{
     display: flex;
     align-items: center;
     gap: 30px;
-    overflow: hidden;        /* 隐藏溢出部分 */
-    white-space: nowrap;     /* 防止自动换行 */
+    overflow: hidden;
+    /* 隐藏溢出部分 */
+    white-space: nowrap;
+    /* 防止自动换行 */
     border-top: 2px solid rgb(255, 255, 255);
     border-bottom: 2px solid rgb(255, 255, 255);
-  }
+}
 
 .title {
     padding-left: 5vw;
@@ -204,12 +236,12 @@ a, a:visited, a:active, a:hover{
 
 
 /* [背景预留空间】padding-background */
-.padding-background{
+.padding-background {
     background-color: rgb(0, 0, 0);
     width: 100%;
 }
 
-.about{
+.about {
     background-color: rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -217,17 +249,18 @@ a, a:visited, a:active, a:hover{
     row-gap: 1rem;
     height: 100vh;
 }
-.about content{
+
+.about content {
     text-align: center;
     margin: 10px;
 }
 
-.about content p{
+.about content p {
     text-align: center;
     margin: 10px;
 }
 
-.about content img{
+.about content img {
     width: 100%;
     height: auto;
     max-width: 400px;
@@ -236,27 +269,30 @@ a, a:visited, a:active, a:hover{
 
 /* 旋转的小图标 */
 .rotating-image {
-    width: 15vw; /* 你可以根据需要调整大小 */
+    width: 15vw;
+    /* 你可以根据需要调整大小 */
     height: auto;
     animation: slow-spin 20s linear infinite;
     display: block;
     margin: 10px;
     z-index: 0;
-  }
-  
+}
+
 @keyframes slow-spin {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
 /* reduce motion media query */
 @media (prefers-reduced-motion: reduce) {
     .rotating-image {
-        animation: none; /* 禁用旋转动画 */
+        animation: none;
+        /* 禁用旋转动画 */
     }
 }
 
@@ -272,76 +308,84 @@ a, a:visited, a:active, a:hover{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-  
-  .left-top-content {
+}
+
+.left-top-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  }
-  
-  .content-block h2 {
+}
+
+.content-block h2 {
     margin: 0 0 0.5rem;
-  }
-  
-  .icon-text {
+}
+
+.icon-text {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
-  
-  .icon {
-    font-size: 1.5rem;
-  }
+}
 
-  .icon-text img{
+.icon {
+    font-size: 1.5rem;
+}
+
+.icon-text img {
     width: 2vw;
-  }
-  
-  .bottom-right-content {
+}
+
+.bottom-right-content {
     bottom: 2rem;
     right: 2rem;
     text-align: right;
-   
-  }
 
-  .bottom-right-content a{
- 
+}
+
+.bottom-right-content a {
+
     padding: 10px 20px;
     border-radius: 10px;
-  }
+}
 
 /* 【关于嘉宾】关于嘉宾的css代码。用来显示关于嘉宾的排版。flex格式 */
 
 .casts {
     display: flex;
-    flex-wrap: wrap; /* 自动换行，如果屏幕放不下 */
-    gap: 20px;       /* 每个块之间的间距 */
-    justify-content: center; /* 项目左右分布 */
+    flex-wrap: wrap;
+    /* 自动换行，如果屏幕放不下 */
+    gap: 20px;
+    /* 每个块之间的间距 */
+    justify-content: center;
+    /* 项目左右分布 */
     padding: 0px;
-  }
-  .cast-information {
-    flex: 1 1 calc(33.33% - 20px); /* 三列布局 */
+}
+
+.cast-information {
+    flex: 1 1 calc(33.33% - 20px);
+    /* 三列布局 */
     max-width: calc(33.33% - 20px);
     box-sizing: border-box;
     padding: 10px;
     border-width: 2px;
     border-style: solid;
     border-color: #ffffff;
-  }
+}
 
-  .cast-information img {
+.cast-information img {
     max-width: 100%;
     height: auto;
-    display: block; /* 避免图片底部出现空隙 */
-    object-fit: cover; /* 如果你希望裁剪图像填充容器 */
-  }
-  @media (max-width: 900px) {
+    display: block;
+    /* 避免图片底部出现空隙 */
+    object-fit: cover;
+    /* 如果你希望裁剪图像填充容器 */
+}
+
+@media (max-width: 900px) {
     .cast-information {
-      flex: 1 1 calc(50% - 20px);
-      max-width: calc(50% - 20px);
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
     }
-  }
+}
 
 
 
@@ -352,6 +396,15 @@ a, a:visited, a:active, a:hover{
     overflow: hidden;
     position: relative;
     background-color: #4444FF;
+}
+
+.sidebar-marquee {
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #4444FF;
+    line-height: 20px;
 }
 
 .marquee div {
@@ -365,7 +418,23 @@ a, a:visited, a:active, a:hover{
     animation: marquee 10s linear infinite;
 }
 
+.sidebar-marquee div {
+    display: block;
+    width: 200%;
+    height: 4vw;
+
+    position: absolute;
+    overflow: hidden;
+
+    animation: marquee 10s linear infinite;
+}
+
 .marquee span {
+    float: left;
+    width: 50%;
+}
+
+.sidebar-marquee span {
     float: left;
     width: 50%;
 }
@@ -382,7 +451,8 @@ a, a:visited, a:active, a:hover{
 
 @media (prefers-reduced-motion: reduce) {
     .marquee div {
-        animation: none; /* 禁用滚动动画 */
+        animation: none;
+        /* 禁用滚动动画 */
     }
 }
 
@@ -410,20 +480,40 @@ a, a:visited, a:active, a:hover{
 }
 
 .tracklist-list:hover {
-  color: rgb(0, 0, 0);
-  background: linear-gradient(90deg, #4444FF, #0E5CB1, #2DACB0,#A7E9A1,#2DACB0, #0E5CB1, #4444FF);
-  }
+    color: rgb(0, 0, 0);
+    background: linear-gradient(90deg, #4444FF, #0E5CB1, #2DACB0, #A7E9A1, #2DACB0, #0E5CB1, #4444FF);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 增加减少运动模式的样式 */
 @media (prefers-reduced-motion: reduce) {
+
     /* 禁用渐变背景和颜色过渡 */
     .tracklist-list {
-        transition: none; /* 禁用所有过渡动画 */
+        transition: none;
+        /* 禁用所有过渡动画 */
     }
 
     .tracklist-list:hover {
-        color: rgb(0, 0, 0); /* 直接应用文字颜色 */
-       
+        color: rgb(0, 0, 0);
+        /* 直接应用文字颜色 */
+
     }
 }
 
@@ -447,9 +537,11 @@ a, a:visited, a:active, a:hover{
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     /* 如果用户选择减少运动，禁用视频，使用静态图片替代 */
     #bg-video {
-        display: none;  /* 隐藏视频背景 */
+        display: none;
+        /* 隐藏视频背景 */
     }
 
     /* 使用图片背景替代视频 */
@@ -468,6 +560,7 @@ a, a:visited, a:active, a:hover{
     height: 35vh;
     background-color: #000000;
 }
+
 .blank-space-3 {
     height: 20vh;
     background-color: #000000;
@@ -475,6 +568,194 @@ a, a:visited, a:active, a:hover{
 
 .footer {
     background-color: #000000;
-}   
+}
 
 
+
+
+
+/* 侧边栏 */
+.sidebar {
+    width: 340px;
+    height: 540px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 20vh;
+    right: -400px;
+    transition: right 0.5s ease;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    border: #a2a2a2 1px solid;
+    backdrop-filter: blur(10px); 
+
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.location-title-container {
+    padding: 0px;
+}
+
+.close-btn-container img {
+    padding: 0px;
+    height: 50px;
+    width: 100%;
+
+}
+
+.location-image-container {
+    padding: 0px;
+    margin: 0px;
+}
+
+.content-devider {
+    border-bottom: rgb(0, 0, 0) 2px solid;
+    background-color: #4444FF;
+    margin: 0px;
+    padding: 4px;
+}
+
+.content-devider P {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.sidebar img {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.location-desc-container p {
+    text-align: left;
+    text-transform: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+
+}
+
+/* 新增的字符信息区域 */
+.character-info {
+    margin-top: 20px;
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.character-info div {
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+}
+
+.character-info .label {
+    font-weight: bold;
+}
+
+/* 地图外容器 */
+.map-container {
+    height: 100vh;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+    background-image: url("../images/townmap.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* 真正的地图图像（用于保留图片比例） */
+.map-image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+/* 小红点统一放在点容器中 */
+.dot-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dot {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: #44ffef;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.dot.active {
+    width: 24px;
+    height: 24px;
+    background-color: #4444FF;
+}
+
+/* 提示框 */
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: absolute;
+    z-index: 3;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+.dot:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
